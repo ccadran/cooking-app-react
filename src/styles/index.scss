@@ -1,0 +1,44 @@
+* {
+    li {
+        list-style: none;
+    }
+}
+
+.recipes {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        .card {
+            flex: 1 0 10%;
+            min-width: 200px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            .img-container {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+            h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 1.5rem;
+            }
+            p {
+                text-align: center;
+            }
+            #instruction {
+                text-align: left;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+
+                -webkit-line-clamp: 7;
+                overflow: hidden;
+            }
+        }
+    }
+}

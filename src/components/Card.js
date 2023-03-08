@@ -5,7 +5,12 @@ const Card = ({ recipe }) => {
         <li className="card">
             <h3>{recipe.strMeal}</h3>
             <p>Origin: {recipe.strArea}</p>
-            <img src={recipe.strMealThumb} alt={recipe.strMeal + "pictures"} />
+            <div className="img-container">
+                <img
+                    src={recipe.strMealThumb}
+                    alt={recipe.strMeal + "pictures"}
+                />
+            </div>
             <p id="instruction">{recipe.strInstructions}</p>
         </li>
     );
