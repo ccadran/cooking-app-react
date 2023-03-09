@@ -5,19 +5,33 @@ import Card from "./Card";
 const Recipes = () => {
     const [data, setData] = useState([]);
 
-    useEffect(() => {
-        axios
-            .get("https://www.themealdb.com/api/json/v1/1/search.php?s=chicken")
-            .then((res) => setData(res.data.meals));
-    }, []);
+    function mealSearch(e) {
+        const search = e.target.value;
 
+        axios
+            .get(
+                "https://www.themealdb.com/api/json/v1/1/search.php?s=" + search
+            )
+
+            .then((res) => setData(res.data.meals));
+    }
     return (
-        <div className="recipes">
-            <ul>
-                {data.map((recipe, index) => {
-                    return <Card key={index} recipe={recipe} />;
-                })}
-            </ul>
+        <div className="main">
+            <div className="search">
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="Entrez le nom d'un aliment (en anglais)"
+                    onChange={mealSearch}
+                />
+            </div>
+            <div className="recipes">
+                <ul>
+                    {data.map((recipe, index) => {
+                        return <Card key={index} recipe={recipe} />;
+                    })}
+                </ul>
+            </div>
         </div>
     );
 };
